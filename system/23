@@ -1,0 +1,4 @@
+in the graphical session:
+type username and password in login prompt after boot
+in ssh session:
+type in terminal "ssh <your username>@<your host>" then type password when asked 

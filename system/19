@@ -1,0 +1,2 @@
+ls /etc/init.d
+#the name of this kind of services is "Daemons"

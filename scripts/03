@@ -1,0 +1,154 @@
+#!/bin/bash
+
+option_function(){
+	tput setaf 15;
+	echo -e "\nPlease choose an option\nOR\nPress Q to exit"
+		read option
+		clear
+
+		menu_function
+
+		if [ $option == "0" ];
+		then
+		clear
+	tput setaf 6;
+		echo -e "\n"
+			sudo apt-get install openssh-server -y
+			sudo service ssh restart
+		msgs_function
+		option_function
+		elif [ $option == "1" ];
+		then
+		clear
+	tput setaf 6;
+		echo -e "\n"
+			curl http://wttr.in/Khouribga
+		msgs_function
+		option_function
+		elif [ $option == "2" ];
+		then
+		clear
+	tput setaf 6;
+		echo -e "\n"
+			curl wttr.in/Moon
+		msgs_function
+		option_function
+		elif [ $option == "3" ];
+		then
+		clear
+	tput setaf 6;
+		echo -e "\n"
+			df -h
+		msgs_function
+		option_function
+		elif [ $option == "4" ];
+		then
+		clear
+	tput setaf 6;
+		echo -e "\n"
+			htop
+		msgs_function
+		option_function
+		elif [[ $option == "q" || $option == "Q" ]];
+		then
+			clear
+	tput setaf 1;
+			echo "
+			██████╗ ██╗   ██╗███████╗
+			██╔══██╗╚██╗ ██╔╝██╔════╝
+			██████╔╝ ╚████╔╝ █████╗  
+			██╔══██╗  ╚██╔╝  ██╔══╝  
+			██████╔╝   ██║   ███████╗
+			╚═════╝    ╚═╝   ╚══════╝
+			                         
+									 "
+			sleep 1
+			clear
+	tput setaf 15;
+			exit 0
+		else
+		tput setaf 9;
+			echo -e "\n\t\t\tTry a valid option !"
+			sleep 1
+			clear
+		menu_function
+		option_function
+				fi
+}
+
+msgs_function(){
+	tput setaf 3;
+		echo -e "\nPress C to continue ..."
+		echo -e "Or\nPress Q to exit ..."
+		read x
+			if [[ $x == "c" || $x == "C" ]];
+		then
+		clear
+		menu_function
+			option_function
+			elif [[ $x == "q" || $x == "Q" ]];
+		then
+			clear
+	tput setaf 1;
+			echo "
+			██████╗ ██╗   ██╗███████╗
+			██╔══██╗╚██╗ ██╔╝██╔════╝
+			██████╔╝ ╚████╔╝ █████╗  
+			██╔══██╗  ╚██╔╝  ██╔══╝  
+			██████╔╝   ██║   ███████╗
+			╚═════╝    ╚═╝   ╚══════╝
+			                         
+									 "
+			sleep 1
+			clear
+	tput setaf 15;
+			exit 0
+		else
+			clear
+			menu_function
+tput setaf 9;
+			echo -e "\n\t\t\tInvalid option!"
+			sleep 1
+			clear
+			menu_function
+			msgs_function
+			fi
+}
+
+menu_function(){
+	tput setaf 1;
+echo -e "*************************************************************
+
+█████╗ ██╗  ██╗██╗  ██╗██╗  ██╗██╗██╗      █████╗ ██████╗ 
+██╔══██╗██║  ██║██║ ██╔╝██║  ██║██║██║     ██╔══██╗██╔══██╗
+███████║███████║█████╔╝ ███████║██║██║     ███████║██║  ██║
+██╔══██║██╔══██║██╔═██╗ ██╔══██║██║██║     ██╔══██║██║  ██║
+██║  ██║██║  ██║██║  ██╗██║  ██║██║███████╗██║  ██║██████╔╝
+╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═╝╚═╝╚══════╝╚═╝  ╚═╝╚═════╝ 
+
+*************************************************************
+\t\t\t  OPTIONS\n*************************************************************"
+
+tput setaf 2;
+echo "=> Option 0 : Install and run ssh server.
+=> Option 1 : infos about the weather in Khouribga.
+=> Option 2 : Info about the moon phases. 
+=> Option 3 : Get partition informations.
+=> Option 4 : Activity monitor."
+
+}
+
+pre_script_function(){
+	clear
+	tput setaf 8;
+			sudo apt-get update -y
+			sudo apt-get upgrade -y
+			sudo apt-get install curl -y
+			sudo apt-get install git -y
+			sudo apt-get install htop -y
+	clear
+}
+
+pre_script_function
+menu_function
+option_function
